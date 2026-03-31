@@ -1,18 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <title>About</title>
+    <title>Contatos</title>
     <link rel="icon" href="img/favicon.ico">
 </head>
+
 <body>
 
+<!--#region HEADER--> 
     <header style="display: flex; place-self: end;">
         <nav>
             <a href="index.html">HOME</a> |
+            <a href="events.html">EVENTOS</a> |
             <a href="contact.html">CONTATO</a> |
-            <a href="about.html">SOBRE</a>
+            <a href="about.html">SOBRE</a> |
+            <a href="login.html">ENTRAR</a>
         </nav>
     </header>
+
+    <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/Logo.jpg?raw=true" alt="Logo" id="topo">
+<!--#endregion-->
+
+    <h1><b>Mande uma mensagem</b></h1>
+
+    <form>
+        <ul>
+            <li>
+                <label for="input_nome">Nome</label>
+                <input type="text" name="input_nome" id="input_nome" required>
+            </li>
+            <li>
+                <label for="input_email">E-Mail</label>
+                <input type="email" name="input_email" id="input_email" required>
+            </li>
+            <li>
+                <label for="input_phone">Telefone</label>
+                <input type="tel" name="input_phone" id="input_phone" maxlength="11" placeholder="(99) 99999-9999">
+            </li>
+            <li>
+                <label for="input_subject"></label>
+            <select name="input_subject" id="input_subject" required>
+                <option value="null">-- Selecione --</option>
+                <option value="reclamacao">Reclamação</option>
+                <option value="sugestao">Sugestão</option>
+            </select>
+            </li>
+            <li>
+                <label for="input_message">Mensagem</label>
+                <textarea name="input_message" id="input_message" rows="3" required></textarea>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Opções de Resposta</legend>
+                    <input type="checkbox" name="answer" id="email" value="email" required> E-mail
+                    <input type="checkbox" name="answer" id="phone" value="phone" required> Telefone
+                </fieldset>
+            </li>
+            <li><button type="submit">Enviar</button></li>
+        </ul>
+    </form>
+
+<!--#region FOOTER -->
+    <div class="rodape">
+        <a href="https://www.facebook.com/ifsppirituba" target="_blank">
+            <img width="50px" height="50px" vspace="10px"src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/facebook.png?raw=true" alt="Facebook">
+        </a>
+        <p>IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato:
+        (011) 2504-0100</p>
+    </div>
+<!--#endregion-->
 
 </body>
 </html>
