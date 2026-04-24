@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="header/header.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
+</head>
+
+<body>
+    <div id="topo"></div>
+    <main class="contato">
+        <h2>Mande uma mensagem</h2>
+        <form>
+            <ul style="list-style-type: disc;">
+                <li>
+                    <label>Nome:</label>
+                    <input type="text" name="nome">
+                </li>
+                <li>
+                    <label>E-mail:</label>
+                    <input type="email" name="email">
+                </li>
+                <li>
+                    <label>Telefone:</label>
+                    <input type="tel" name="telefone" placeholder="(99) 99999-9999">
+                </li>
+                <li>
+                    <label>Assunto:</label>
+                    <select name="assunto">
+                        <option>Selecione...</option>
+                        <option>Dúvida</option>
+                        <option>Reclamação</option>
+                        <option>Sugestão</option>
+                    </select>
+                </li>
+                <li>
+                    <label>Mensagem:</label><br>
+                    <textarea name="mensagem" rows="4" cols="40"></textarea>
+                </li>
+                <li>
+                    <fieldset>
+                        <legend>Opções de Resposta</legend>
+                        <input type="checkbox" name="resposta_email"> E-mail
+                        <input type="checkbox" name="resposta_telefone"> Telefone
+                    </fieldset>
+                    <br>
+                </li>
+            </ul>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <div id="footer"></div>
+</body>
+<script>
+    fetch("header/header.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("topo").innerHTML = data;
+        });
+    fetch("footer/footer.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+</script>
+
+
+</html>

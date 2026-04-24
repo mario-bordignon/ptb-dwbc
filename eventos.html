@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inscrição</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="header/header.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
+</head>
+   <div id="topo"></div>
+<body>
+    <main class="eventos">
+        <h2>Inscreva-se</h2>
+        <form>
+            <label for="evento">Evento:</label>
+            <select id="evento" name="evento">
+                <option>Selecione...</option>
+                <option>Voe sem asas</option>
+                <option>Festa Junina</option>
+                <option>Semana da Tecnologia</option>
+            </select>
+            <br><br>
+            <fieldset>
+                <legend>Informações de Acesso</legend>
+                <label>Usuário:</label><br>
+                <input type="text" name="usuario" required><br><br>
+                <label>Senha:</label><br>
+                <input type="password" name="senha" required><br><br>
+                <label>Confirme a Senha:</label><br>
+                <input type="password" name="confirmar_senha" required><br>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Informações Pessoais</legend>
+                <label>Nome Completo:</label><br>
+                <input type="text" name="nome" required><br><br>
+                <label>E-mail:</label><br>
+                <input type="email" name="email" required><br><br>
+                <label>Celular:</label><br>
+                <input type="tel" name="celular" placeholder="(99) 99999-9999" required><br><br>
+                <fieldset>
+                    <legend>Sexo</legend>
+                    <input type="radio" name="sexo" value="masculino" required> Masculino
+                    <input type="radio" name="sexo" value="feminino" required> Feminino
+                    <br><br>
+                </fieldset>
+                <label>Data de Nascimento:</label><br>
+                <input type="date" name="nascimento" required><br><br>
+                <label>Cor Favorita:</label><br>
+                <input type="color" name="cor"><br><br>
+                <label>Perfil no Github:</label><br>
+                <input type="url" name="github" required><br>
+            </fieldset>
+            <br>
+            <button type="submit">Inscrever</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </main>
+    <div id="footer"></div>
+</body>
+<script>
+fetch("header/header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("topo").innerHTML = data;
+  });
+  fetch("footer/footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
+</html>

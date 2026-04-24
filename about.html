@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
-    <title>Sobre</title>
-    <link rel="icon" href="img/favicon.ico">
+    <title>About</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="header/header.css">
+    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" href="footer/footer.css">
 </head>
 
 <body>
-
-<!--#region HEADER--> 
-    <header style="display: flex; place-self: end;">
-        <nav>
-            <a href="index.html">HOME</a> |
-            <a href="events.html">EVENTOS</a> |
-            <a href="contact.html">CONTATO</a> |
-            <a href="about.html">SOBRE</a> |
-            <a href="login.html">ENTRAR</a>
-        </nav>
-    </header>
-
-    <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/Logo.jpg?raw=true" alt="Logo" id="topo">
-<!--#endregion-->
-
-
-
-<!--#region FOOTER -->
-    <div class="rodape">
-        <a href="https://www.facebook.com/ifsppirituba" target="_blank">
-            <img width="50px" height="50px" vspace="10px"src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/facebook.png?raw=true" alt="Facebook">
-        </a>
-        <p>IFSP - Câmpus Pirituba - Av. Mutinga, 951 - Jardim Santo Elias - CEP: 05110-000 - São Paulo/SP - Contato:
-        (011) 2504-0100</p>
-    </div>
-<!--#endregion-->
-
+    <div id="topo"></div>
+    <main>
+        <h1>Bem-vindo ao Campus Pirituba do IFSP</h1>
+    </main>
+    <div id="footer"></div> 
 </body>
+<script>
+fetch("header/header.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("topo").innerHTML = data;
+  });
+  fetch("footer/footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
 </html>
