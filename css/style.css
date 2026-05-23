@@ -5,6 +5,12 @@ main {
     justify-content: center;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
 .imagem-legenda {
     display: flex;
     flex-direction: column;

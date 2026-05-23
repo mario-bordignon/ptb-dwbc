@@ -1,47 +1,211 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <title>Home</title>
+
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/novoStyle.css">
+    <link rel="stylesheet" href="css/carrossel.css">
+
     <link rel="stylesheet" href="header/header.css">
     <link rel="stylesheet" type="text/css" href="header.css">
 </head>
 
 <body>
+
     <div id="topo"></div>
+
     <main>
+
         <h4>Acontece no IFSP!</h4>
-        <div class="imagem-legenda">
-            <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/SEJA_RARO.jpg?raw=true" width="400px"
-                alt="Evento SEJA_RARO">
-            <p>Aniversário do IFSP - Pirituba - Palestra Augusto Aielo</p>
+
+
+        <div class="carousel">
+
+            <button class="arrow prev">&#10094;</button>
+
+            <div class="carousel-track">
+
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/A.png?raw=true" alt="">
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/B.jpg?raw=true" alt="">
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/C.jpg?raw=true" alt="">
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/yVbOcB1ryh0" allowfullscreen>
+                    </iframe>
+                </div>
+
+            </div>
+
+            <button class="arrow next">&#10095;</button>
         </div>
-        <!-- <h1>Sobre a Biblioteca</h1>
-        <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/library.jpeg?raw=true" alt="Biblioteca">
-        <h1>Conheça os novos títulos disponíveis na nossa biblioteca</h1>
-        <h5>Publicado: Quarta-feira, 14 de agosto de 2019</h5> -->
+
+        <!-- BOLINHAS -->
+        <div class="dots"></div>
+
+        <section class="noticias">
+
+            <div class="card">
+                <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/eleicoes.jpg?raw=true" alt="">
+
+                <h3>
+                    Radar IFSP: informe-se sobre as eleições do dia 13 de outubro
+                </h3>
+
+                <p>
+                    Todos os alunos e servidores podem votar;
+                    acesse aqui a cabine de votação online do seu câmpus
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/snct.jpg?raw=true" alt="">
+
+                <h3>
+                    IFSP: SNCT reúne atividades entre 19 e 24 de outubro
+                </h3>
+
+                <p>
+                    Programação reunirá iniciativas para aproximar
+                    pesquisadores e atividades culturais
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/residencia.png?raw=true" alt="">
+
+                <h3>
+                    IFSP oferece bolsa aos voluntários da Residência Pedagógica
+                </h3>
+
+                <p>
+                    Bolsa de R$ 400,00 será paga pelo período de três meses
+                </p>
+            </div>
+
+            <div class="card">
+                <img src="https://github.com/DWBA4/dwba4_semana_imagens/blob/master/maratona.jpeg?raw=true" alt="">
+
+                <h3>
+                    Inscrições abertas para a III Maratona InterIF
+                </h3>
+
+                <p>
+                    Maratona de programação do IFSP será realizada online,
+                    no dia 31 de outubro; inscrições até 26 de outubro
+                </p>
+            </div>
+
+        </section>
+
         <h1>Conheça os desafios de inovação</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/yVbOcB1ryh0?si=5uT8xgl8xZvsgdXG"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
+
+        <div class="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yVbOcB1ryh0" allowfullscreen>
+            </iframe>
+        </div>
+
     </main>
+
     <div id="footer"></div>
+
 </body>
 
 <script>
-fetch("header/header.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("topo").innerHTML = data;
-  });
-  fetch("footer/footer.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("footer").innerHTML = data;
-  });
+    fetch("header/header.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("topo").innerHTML = data;
+        });
+    fetch("footer/footer.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+
+    /* =========================
+       CARROSSEL
+    ========================== */
+
+    const track = document.querySelector(".carousel-track");
+
+    const slides = document.querySelectorAll(".slide");
+
+    const nextBtn = document.querySelector(".next");
+
+    const prevBtn = document.querySelector(".prev");
+
+    const dotsContainer = document.querySelector(".dots");
+
+    let currentIndex = 0;
+    slides.forEach((_, index) => {
+
+        const dot = document.createElement("div");
+
+        dot.classList.add("dot");
+
+        if (index === 0) {
+            dot.classList.add("active");
+        }
+
+        dot.addEventListener("click", () => {
+
+            currentIndex = index;
+
+            updateCarousel();
+        });
+
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+
+    function updateCarousel() {
+
+        track.style.transform =
+            `translateX(-${currentIndex * 100}%)`;
+
+        dots.forEach(dot => {
+            dot.classList.remove("active");
+        });
+
+        dots[currentIndex].classList.add("active");
+    }
+    nextBtn.addEventListener("click", () => {
+
+        currentIndex++;
+
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+
+        updateCarousel();
+    });
+    prevBtn.addEventListener("click", () => {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1;
+        }
+
+        updateCarousel();
+    });
+
 </script>
+
 </html>
